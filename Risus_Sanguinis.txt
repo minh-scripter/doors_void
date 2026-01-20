@@ -1,0 +1,100 @@
+local cue2 = Instance.new("Sound")
+cue2.Parent = game.Workspace
+cue2.Name = "Spawn"
+cue2.SoundId = "rbxassetid://6734393210"
+cue2.Volume = 9999
+cue2.PlaybackSpeed = 1
+cue2:Play()
+
+if game.Workspace:FindFirstChild("SeekMovingNewClone") then return end
+
+---====== Load spawner ======---
+
+local spawner = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Entity%20Spawner/V2/Source.lua"
+))()
+
+---====== Create entity ======---
+
+local entity = spawner.Create({
+	Entity = {
+		Name = "Risus Sanguinis",
+		Asset = "rbxassetid://11768256661",
+		HeightOffset = 0
+	},
+
+	Lights = {
+		Flicker = {
+			Enabled = true,
+			Duration = 10
+		},
+		Shatter = true,
+		Repair = false
+	},
+
+	Earthquake = {
+		Enabled = false
+	},
+
+	Movement = {
+		Speed = 1000,
+		Delay = 11,
+		Reversed = false
+	},
+
+	Rebounding = {
+		Enabled = true,
+		Type = "Ambush",
+		Min = 10,
+		Max = 10,
+		Delay = 0
+	},
+
+	Damage = {
+		Enabled = true,
+		Range = 20,
+		Amount = 100
+	},
+
+	Crucifixion = {
+		Enabled = true,
+		Range = 40,
+		Resist = false,
+		Break = true
+	},
+
+	Death = {
+		Type = "Guiding",
+		Hints = {
+			"You died to Risus Sanguinis",
+			"Hide and wait"
+		},
+		Cause = "Risus Sanguinis"
+	}
+})
+
+---====== Debug callbacks ======---
+
+entity:SetCallback("OnSpawned", function()
+	print("Risus Sanguinis spawned")
+end)
+
+entity:SetCallback("OnStartMoving", function()
+	print("Risus Sanguinis moving")
+end)
+
+entity:SetCallback("OnRebounding", function(start)
+	if start then
+		print("Risus Sanguinis rebounding")
+	end
+end)
+
+entity:SetCallback("OnDamagePlayer", function(hp)
+	if hp <= 0 then
+		print("Player died to Risus Sanguinis")
+	end
+end)
+
+---====== Run entity ======---
+
+entity:Run()

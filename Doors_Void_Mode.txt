@@ -19,7 +19,7 @@ for _, v in pairs(Lighting:GetChildren()) do
 end
 
 -- =========================
--- 🌫️ WHITE FOG (FIXED - VISIBLE)
+-- WHITE FOG (FIXED - VISIBLE)
 -- =========================
 Lighting.FogStart = 0
 Lighting.FogEnd = 45
@@ -43,7 +43,7 @@ task.spawn(function()
 end)
 
 -- =========================
--- 💡 RTX ANALOG HORROR
+-- RTX ANALOG HORROR
 -- =========================
 local bloom = Instance.new("BloomEffect", Lighting)
 bloom.Intensity = 1.3
@@ -61,7 +61,7 @@ rays.Intensity = 0.08
 rays.Spread = 0.9
 
 -- =========================
--- 🟥🟦 TITLE GUI
+-- TITLE GUI
 -- =========================
 local gui = Instance.new("ScreenGui")
 gui.Name = "VoidModeGui"
@@ -84,7 +84,7 @@ local title2 = Instance.new("TextLabel", gui)
 title2.Size = UDim2.new(1,0,0.1,0)
 title2.Position = UDim2.new(0,0,0.75,0)
 title2.BackgroundTransparency = 1
-title2.Text = "Mode By Minh.Script"
+title2.Text = "Mode By Minh Scripter"
 title2.Font = Enum.Font.GothamBold
 title2.TextScaled = true
 title2.TextColor3 = Color3.fromRGB(0,160,255)
@@ -102,10 +102,10 @@ task.wait(2)
 TweenService:Create(title2, TweenInfo.new(0.6), {TextTransparency = 1}):Play()
 
 -- =========================
--- 🔁 ENTITY LOOP
+-- ENTITY LOOP
 -- =========================
 while true do
-    task.wait(60)
+    task.wait(120)
 
     pcall(function()
         loadstring(game:HttpGet(
@@ -113,7 +113,7 @@ while true do
         ))()
     end)
 
-    task.wait(80)
+    task.wait(150)
 
     pcall(function()
         loadstring(game:HttpGet(

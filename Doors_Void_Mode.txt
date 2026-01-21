@@ -105,7 +105,7 @@ TweenService:Create(title2, TweenInfo.new(0.6), {TextTransparency = 1}):Play()
 -- ENTITY LOOP
 -- =========================
 while true do
-    task.wait(120)
+    task.wait(20)
 
     pcall(function()
         loadstring(game:HttpGet(
@@ -113,7 +113,7 @@ while true do
         ))()
     end)
 
-    task.wait(150)
+    task.wait(30)
 
     pcall(function()
         loadstring(game:HttpGet(

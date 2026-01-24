@@ -121,10 +121,10 @@ while true do
         ))()
     end)
 
-    task.wait(30)
+    task.wait(80)
     pcall(function()
         loadstring(game:HttpGet(
-            "https://raw.githubusercontent.com/minh-scripter/doors_void/refs/heads/main/Risus_Sanguinis.txt"
+            "https://raw.githubusercontent.com/minh-scripter/doors_void/refs/heads/main/%E2%80%8BPhantasm-B.txt"
         ))()
     end)
 end

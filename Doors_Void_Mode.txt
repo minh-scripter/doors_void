@@ -120,4 +120,11 @@ while true do
             "https://raw.githubusercontent.com/minh-scripter/doors_void/refs/heads/main/Risus_Sanguinis.txt"
         ))()
     end)
+
+    task.wait(30)
+    pcall(function()
+        loadstring(game:HttpGet(
+            "https://raw.githubusercontent.com/minh-scripter/doors_void/refs/heads/main/Risus_Sanguinis.txt"
+        ))()
+    end)
 end

@@ -1,0 +1,90 @@
+---====== Load spawner ======---
+
+local spawner = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/minh-scripter/doors_void/refs/heads/main/Local_Spawner.txt"
+))()
+
+---====== Create entity ======---
+
+local entity = spawner.Create({
+	Entity = {
+		Name = "Phantasm-B",
+		Asset = "rbxassetid://11801716344",
+		HeightOffset = 0
+	},
+
+	Lights = {
+		Flicker = {
+			Enabled = true,
+			Duration = 4
+		},
+		Shatter = true,
+		Repair = false
+	},
+
+	Earthquake = {
+		Enabled = false
+	},
+
+	Movement = {
+		Speed = 550,
+		Delay = 5,
+		Reversed = false
+	},
+
+	Rebounding = {
+		Enabled = true,
+		Type = "Ambush",
+		Min = 3,
+		Max = 3,
+		Delay = 1
+	},
+
+	Damage = {
+		Enabled = true,
+		Range = 20,
+		Amount = 100
+	},
+
+	Crucifixion = {
+		Enabled = true,
+		Range = 40,
+		Resist = false,
+		Break = true
+	},
+
+	Death = {
+		Type = "Guiding",
+		Hints = {
+			"You died to Phantasm-B",
+			"Hide and wait"
+		},
+		Cause = "Phantasm-B"
+	}
+})
+
+---====== Debug callbacks ======---
+
+entity:SetCallback("OnSpawned", function()
+	print("Phantasm-B spawned")
+end)
+
+entity:SetCallback("OnStartMoving", function()
+	print("Phantasm-B moving")
+end)
+
+entity:SetCallback("OnRebounding", function(start)
+	if start then
+		print("Red Maw rebounding")
+	end
+end)
+
+entity:SetCallback("OnDamagePlayer", function(hp)
+	if hp <= 0 then
+		print("Player died to Phantasm-B")
+	end
+end)
+
+---====== Run entity ======---
+
+entity:Run()
